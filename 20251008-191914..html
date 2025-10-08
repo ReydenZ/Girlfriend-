@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Girlfriend?</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin-top: 100px;
+    }
+
+    h1 {
+      font-weight: bold;
+    }
+
+    #emoji {
+      font-size: 50px;
+      margin: 20px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background-color: pink;
+      transition: transform 0.2s ease;
+    }
+
+    #noBtn {
+      background-color: lightgray;
+    }
+  </style>
+</head>
+<body>
+  <h1>WILL YOU BE MY GIRLFRIEND?</h1>
+  <div id="emoji">😁</div>
+  <button id="yesBtn">YES</button>
+  <button id="noBtn">NO</button>
+
+  <script>
+    const emoji = document.getElementById("emoji");
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+
+    const sadEmojis = ["😕", "🫤", "🙁", "☹️", "😢", "😥", "😟", "😓", "😞", "🥺", "😭"];
+    let clickCount = 0;
+    let yesSize = 1;
+
+    noBtn.addEventListener("click", () => {
+      // Change emoji with each click
+      emoji.textContent = sadEmojis[Math.min(clickCount, sadEmojis.length - 1)];
+      clickCount++;
+
+      // Enlarge YES button slightly each time
+      yesSize += 0.2;
+      yesBtn.style.transform = `scale(${yesSize})`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      emoji.textContent = "😍💖";
+      alert("Yay! You said YES! I LOVE YOU SO MUCH!🥰😘");
+    });
+  </script>
+</body>
+</html>
